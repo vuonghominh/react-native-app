@@ -7,9 +7,11 @@ import SplashScene from './scenes/splashScene'
 import LoginScene from './scenes/loginScene'
 import theme from './theme/base-theme'
 import AuthStore from './stores/authStore'
+import MatchStore from './stores/matchStore'
 
 const settings = new SettingsStore()
 const authStore = new AuthStore()
+const matchStore = new MatchStore()
 
 export default class AppContainer extends Component {
   constructor(props) {
@@ -18,7 +20,8 @@ export default class AppContainer extends Component {
       toggled: false,
       stores: {
         settings: settings,
-        auth: authStore
+        auth: authStore,
+        matches: matchStore
       },
       theme: theme
     }
