@@ -7,6 +7,7 @@ import {
   View,
   Spinner
 } from 'native-base'
+import { StyleSheet } from 'react-native'
 import { observer } from 'mobx-react/native'
 import { autoSubscriber } from 'firebase-nest'
 import SwipeCards from 'react-native-swipe-cards'
@@ -81,5 +82,28 @@ class MatchList extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  card: {
+    alignItems: 'center',
+    borderRadius: 5,
+    overflow: 'hidden',
+    borderColor: 'grey',
+    backgroundColor: 'white',
+    borderWidth: 1,
+    elevatioin: 1
+  },
+  text: {
+    color: 'black',
+    fontSize: 20,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  noMoreCards: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+})
 
 export default autoSubscriber(observer(MatchList))
