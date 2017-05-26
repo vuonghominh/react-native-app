@@ -2,14 +2,21 @@ import React, { Component } from 'react'
 import { Drawer, View } from 'native-base'
 import { Navigator } from 'react-native'
 import SideMenu from './components/sideMenu'
+import SettingsStore from './stores/settingsStore'
+import SplashScene from './scenes/splashScene'
+import theme from './theme/base-theme'
+
+const settings = new SettingsStore()
 
 export default class AppContainer extends Component {
   constructor(props) {
     super(props)
     this.state = {
       toggled: false,
-      store: {},
-      theme: null
+      stores: {
+        settings: settings
+      },
+      theme: theme
     }
   }
 
@@ -26,7 +33,10 @@ export default class AppContainer extends Component {
   }
 
   renderScene(route, navigator) {
-    switch(route) {
+    switch(route.title) {
+      case 'Splash': {
+        return <SplashScene {...route.passProps} navigator={navigator} />
+      }
       default: {
         return null
       }
@@ -51,6 +61,14 @@ export default class AppContainer extends Component {
             ref={(ref) => this._navigator = ref}
             configureScene={this.configureScene.bind(this)}
             renderScene={this.renderScene.bind(this)}
+            initialRoute={{
+              title: "Splash",
+              passProps: {
+                stores: this.state.stores,
+                toggleDrawer: this.toggleDrawer.bind(this),
+                theme: this.state.theme
+              }
+            }}
             />
         </Drawer>
     )
