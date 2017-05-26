@@ -9,10 +9,12 @@ import MatchScene from './scenes/matchScene'
 import theme from './theme/base-theme'
 import AuthStore from './stores/authStore'
 import MatchStore from './stores/matchStore'
+import PostStore from './stores/postStore'
 
 const settings = new SettingsStore()
 const authStore = new AuthStore()
 const matchStore = new MatchStore()
+const postStore = new PostStore()
 
 export default class AppContainer extends Component {
   constructor(props) {
@@ -22,7 +24,8 @@ export default class AppContainer extends Component {
       stores: {
         settings: settings,
         auth: authStore,
-        matches: matchStore
+        matches: matchStore,
+        posts: postStore
       },
       theme: theme
     }
