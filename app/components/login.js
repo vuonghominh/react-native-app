@@ -25,7 +25,7 @@ export default class Login extends Component {
   signIn() {
     const { auth } = this.props.stores
     const { email, password } = this.state
-
+    console.log(email, password)
     this.setState({loading: true}, () => {
       auth.signIn({email, password})
           .then(() => {
@@ -40,7 +40,7 @@ export default class Login extends Component {
   render() {
     const { loading } = this.state
     const { auth } = this.props.stores
-
+    
     return (
       <View theme={this.props.theme}>
         <InputGroup style={{marginBottom:10}} boarderType='round'>
