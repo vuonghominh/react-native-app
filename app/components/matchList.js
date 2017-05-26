@@ -64,7 +64,7 @@ class MatchList extends Component {
   render() {
     const { matches } = this.props.stores
     const postList = matches.getData('matches')
-    const list = postList ? postList.entries() : null
+    const list = postList ? postList.entries() : []
     const { fetching } = this.state
 
     return (
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     borderColor: 'grey',
     backgroundColor: 'white',
     borderWidth: 1,
-    elevatioin: 1
+    elevation: 1
   },
   text: {
     color: 'black',

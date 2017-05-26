@@ -5,6 +5,7 @@ import SideMenu from './components/sideMenu'
 import SettingsStore from './stores/settingsStore'
 import SplashScene from './scenes/splashScene'
 import LoginScene from './scenes/loginScene'
+import MatchScene from './scenes/matchScene'
 import theme from './theme/base-theme'
 import AuthStore from './stores/authStore'
 import MatchStore from './stores/matchStore'
@@ -46,6 +47,9 @@ export default class AppContainer extends Component {
       }
       case 'Login': {
         return <LoginScene {...route.passProps} navigator={navigator} />
+      }
+      case 'Match': {
+        return <MatchScene {...route.passProps} navigator={navigator} />
       }
       default: {
         return null
