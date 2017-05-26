@@ -39,7 +39,7 @@ export default class Login extends Component {
 
   render() {
     const { loading } = this.state
-    const { auth } = this.state.stores
+    const { auth } = this.props.stores
 
     return (
       <View theme={this.props.theme}>
